@@ -37,3 +37,20 @@ function indexAt(node, collection, linkedList){
   }
   return index
 }
+
+function insertNodeAt(index, newAddress, linkedList, collection){
+  let prevNode = nodeAt(index - 1, linkedList, collection)
+  let subsequentNode = nodeAt(index, linkedList, collection)
+
+  let prevNodeIndex = indexAt(prevNode, collection, linkedList)
+  let subsNodeIndex = indexAt(subsequentNode, collection, linkedList)
+
+  let prevNodeAddress = addressAt(prevNodeIndex, linkedList, collection)
+  let subsNodeAddress = addressAt(subsNodeIndex, linkedList, collection)
+
+  prevNode.next = newAddress
+  let newNode = collection[newAddress]
+  newNode.next = subsNodeAddress
+
+
+}
