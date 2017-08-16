@@ -8,10 +8,13 @@ function headNode(node, collection){
 
 function next(node, collection){
   let nextAddress = node.next
-  // console.log(node)
-  console.log(nextAddress)
-  // console.log(collection)
-  // console.log(collection[node])
   return collection[nextAddress]
+}
 
+function nodeAt(index, node, collection){
+  let currentNode = headNode(node, collection)
+  for(var i = 0; i < index; i++){
+    currentNode = next(currentNode, collection)
+  }
+  return currentNode
 }
