@@ -137,8 +137,25 @@ let collection = {rkjasj: secondNode,
   whana: firstNode,
   ajhsak: newNode}
 let linkedList = 'whana'
-let insertNodeAt = ()=>{
-  return "done"
+let insertNodeAt = (index, newNode, linkedList, collection)=>{ //can also be called newNodeAddress
+  console.log(collection[newNode]); //{ name: 'jill', next: '' }
+  let counter = 0
+  let current = linkedList
+  while(collection[current]["next"] != null){
+    console.log(counter);
+    //if index is NOT 0, and we are at the node BEFORE desired index
+    if(counter == index-1){
+      //set newNode's next to next of current node
+      collection[newNode]["next"]=collection[current]["next"]
+      //set current next to new node
+      collection[current]["next"] = newNode
+      //break; we are done
+      break;
+    }
+    counter++
+    // if(counter > 10){break;} //debugging test
+  }
+  // console.log( "done");
 }
 insertNodeAt(1, 'ajhsak', linkedList, collection)
 console.log(collection);
