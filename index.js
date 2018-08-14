@@ -128,15 +128,15 @@ let indexAt = (node,collection,linkedList)=>{
 //   to the inserted node:
 // 3) #insertNodeAt should insert the node at the provided index,
 //   while maintaining order of all the other nodes:
-let firstNode = {name: 'susie', next: 'rkjasj'}
-let secondNode = {name: 'sam', next: 'asnan'}
-let newNode = {name: 'jill', next: ''}
-let lastNode = {name: 'charlie', next: null}
-let collection = {rkjasj: secondNode,
-  asnan: lastNode,
-  whana: firstNode,
-  ajhsak: newNode}
-let linkedList = 'whana'
+// let firstNode = {name: 'susie', next: 'rkjasj'}
+// let secondNode = {name: 'sam', next: 'asnan'}
+// let newNode = {name: 'jill', next: ''}
+// let lastNode = {name: 'charlie', next: null}
+// let collection = {rkjasj: secondNode,
+//   asnan: lastNode,
+//   whana: firstNode,
+//   ajhsak: newNode}
+// let linkedList = 'whana'
 let insertNodeAt = (index, newNode, linkedList, collection)=>{ //can also be called newNodeAddress
   console.log(collection[newNode]); //{ name: 'jill', next: '' }
   let counter = 0
@@ -157,6 +157,44 @@ let insertNodeAt = (index, newNode, linkedList, collection)=>{ //can also be cal
   }
   // console.log( "done");
 }
-insertNodeAt(1, 'ajhsak', linkedList, collection)
-console.log(collection);
+// insertNodeAt(1, 'ajhsak', linkedList, collection)
+// console.log(collection);
 //expect(newNode.next).toEqual('rkjasj')
+//************************************************************
+// let firstNode = {name: 'susie', next: 'rkjasj'}
+// let secondNode = {name: 'sam', next: 'asnan'}
+// let lastNode = {name: 'charlie', next: null}
+// let collection = {rkjasj: secondNode,
+//   asnan: lastNode,
+//   whana: firstNode}
+//
+// let linkedList = 'whana'
+
+function deleteNodeAt(index,linkedList,collection){
+  //assumes delete not at index 0
+  let counter = 0;
+  let current = linkedList
+  while(collection[current]["next"] != null){
+    //if next index is the index to delete
+    if(counter+1 == index){
+      //get current.next.next
+      let nodeToDelete = collection[current]["next"]
+      let nodeAfterNodeToDelete = collection[nodeToDelete]["next"]
+      //set current.next to nodeAfterNodeToDelete (its nodeToDelete.next)
+      collection[current]["next"]=nodeAfterNodeToDelete
+      break
+    }
+    counter++;
+    if(counter > 10){break}
+  }
+  // console.log("done");
+}
+
+// deleteNodeAt(1, linkedList, collection)
+// expect(nodeAt(0, linkedList, collection)).toEqual(firstNode)
+// expect(nodeAt(1, linkedList, collection)).toEqual(lastNode)
+// console.log(collection);
+// 1) #deleteNodeAt should set the next property of the node previous
+//   to the deleted node:
+// 2) #deleteNodeAt should delete the node at the provided index,
+//   while maintaining order of all the other nodes:
