@@ -104,10 +104,7 @@ describe('#insertNodeAt', function() {
     let secondNode = {name: 'sam', next: 'asnan'}
     let newNode = {name: 'jill', next: ''}
     let lastNode = {name: 'charlie', next: null}
-    let collection = {rkjasj: secondNode,
-      asnan: lastNode,
-      whana: firstNode,
-      ajhsak: newNode}
+    let collection = {rkjasj: secondNode, asnan: lastNode, whana: firstNode, ajhsak: newNode}
     let linkedList = 'whana'
     insertNodeAt(1, 'ajhsak', linkedList, collection)
     expect(firstNode.next).toEqual('ajhsak')
