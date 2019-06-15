@@ -17,3 +17,25 @@ function nodeAt(index, linkedList, collection){
     }
     return nextNode
 }
+
+function addressAt(index, linkedList, collection){
+    let node = collection[linkedList]
+    if (index === 0){
+        return linkedList
+    } else {
+    for(let i = 0; i < index - 1; i++){
+        node = collection[node.next]
+    }
+}
+    return node.next
+}
+
+function indexAt(node, collection, linkedList){
+    let index = 0
+    let currentNode = collection[linkedList]
+while(currentNode != node){
+index++
+currentNode = collection[currentNode.next]
+    }
+    return index
+}
