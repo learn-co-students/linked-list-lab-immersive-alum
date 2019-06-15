@@ -1,3 +1,5 @@
+import { link } from "fs";
+
 function getName(node){
 return node.name
 }
@@ -38,4 +40,21 @@ index++
 currentNode = collection[currentNode.next]
     }
     return index
+}
+
+function insertNodeAt(index, key, linkedList, collection){
+    let previousNode = nodeAt(index - 1, linkedList, collection)
+    collection[key].next = previousNode.next
+    collection[addressAt(index -1, linkedList, collection)].next = key
+}
+
+function deleteNodeAt(index, linkedList, collection){
+    let currentNode = nodeAt(index, linkedList, collection)
+    // change previous node.next to current node.next
+    collection[addressAt(index -1, linkedList, collection)].next = currentNode.next
+    // change current node.next to null
+    collection[addressAt(index, linkedList, collection)].next = null
+//0
+//1
+//2
 }
